@@ -13158,6 +13158,7 @@ Performance of face detector in dog_files_short 11.0%
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
 <p><strong>Answer:</strong></p>
+<p>It is probably reasonable exception to impose on the user as the Haar cascade model is only subjected to detect fully fronted faces. So when, partial faces or tilted faces happen, it might not do well. In order to perform well with partial faces , we might have to retrain the model from openCV with image augmentation and with few simulations that make the images hazy and partially visible.</p>
 <p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
 
 </div>
@@ -14645,6 +14646,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
 <p><strong>Answer:</strong></p>
 <p>As, the the pretrained model is pretrained on a similiar problem, I, believe it performs pretty well on this problem too. However, as the data is large the fully connected layers have to be removed and should be connected with new fully connected layers. GlobalAveragePooling2D is used before fully connected layer to yield a vector with a single entry for each possible oject in the classification task.</p>
+<p>As, Resnet is a pretrained model imagenet with larger databse of images and trained with a depth of about 152 layers and achieved just 3.57% error rate. It definitely performs pretty well on comparing with my minimal algorithm.</p>
 
 </div>
 </div>
